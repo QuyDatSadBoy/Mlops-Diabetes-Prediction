@@ -3,7 +3,7 @@
 
 // Outputs:
 //    kubernetes_cluster_host = "34.28.90.0"
-//    kubernetes_cluster_name = "mle-course-gke"
+//    kubernetes_cluster_name = "mlops-469310-gke"
 //    project_id = "mle-course"
 //    region = "us-central1"
 

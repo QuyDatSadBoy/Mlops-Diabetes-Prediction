@@ -294,7 +294,7 @@ alertmanager:
     receivers:
     - name: discord
       discord_configs:
-      - webhook_url: https://discord.com/api/webhooks/1163366967449751582/SeKasAyYb9iicgm8yvGmLgLNhZ8J7FM6hstNz1fSbjTFvcsdxnFs51g-4B8dnLfsFUhb
+      - webhook_url: https://discord.com/api/webhooks/1408160003147305070/rIBkmreGGX_0nIcttnKrcjMFv6UwBdDjneKgdqzztH2aM9UH40AHI-yCjtzueZ7mQr0v
   ## Alertmanager configuration directives (as string type, preferred over the config hash map)
   ## stringConfig will be used only, if tplConfig is true
   ## ref: https://prometheus.io/docs/alerting/configuration/#configuration-file

@@ -197,3 +197,6 @@ poetry.toml
 mlruns
 
 *.parquet
+# Ignore service account keys
+local/ansible/secrets/
+*.json

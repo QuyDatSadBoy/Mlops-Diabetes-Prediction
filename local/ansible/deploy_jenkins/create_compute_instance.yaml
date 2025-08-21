@@ -8,10 +8,10 @@
         # Refer to https://cloud.google.com/compute/docs/images/os-details#ubuntu_lts
         # or use the command `gcloud compute images list --project=ubuntu-os-cloud`
         zone: us-west4-c
-        project: mlecourse-399310
+        project: mlops-469310
         # The service account is needed to create the resources
         auth_kind: serviceaccount
-        service_account_file: ../secrets/mlecourse-399310-a9e446a4b286.json
+        service_account_file: ../secrets/mlops-469310-a422eee6390f.json
         disks:
           - auto_delete: true
             boot: true
@@ -40,6 +40,6 @@
           - 0.0.0.0/0 # Allow traffic from any source (use a more specific source range for security)
         direction: INGRESS # Direction from outside to inside, EGRESS is the opposite direction
         description: Allow incoming traffic on port 8081
-        project: mlecourse-399310
+        project: mlops-469310
         auth_kind: serviceaccount
-        service_account_file: ../secrets/mlecourse-399310-a9e446a4b286.json
+        service_account_file: ../secrets/mlops-469310-a422eee6390f.json
