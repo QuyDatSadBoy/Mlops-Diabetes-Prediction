@@ -19,7 +19,7 @@ spec:
             port:
               number: 30000
       - path: /openapi.json
-        pathType: Exact
+        pathType: ImplementationSpecific
         backend:
           service:
             name: {{ .Release.Name }}
