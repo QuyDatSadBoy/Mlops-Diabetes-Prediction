@@ -49,7 +49,8 @@ pipeline {
             steps {
                 script {
                     container('helm') {
-                        sh("helm upgrade --install diabetes ./app_chart --namespace model-serving --create-namespace")
+                        // sh("helm upgrade --install diabetes ./app_chart --namespace model-serving --create-namespace")
+                        sh("helm upgrade --install diabetes ./app_chart --namespace model-serving --create-namespace --set image.tag=$BUILD_NUMBER")
                     }
                 }
             }
