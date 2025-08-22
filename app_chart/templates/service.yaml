@@ -9,10 +9,10 @@ spec:
   selector:
     app: {{ .Release.Name }}
   ports:
-    - port: 30000
+    - port: 80  # Cổng mà Service lắng nghe
       name: appport
       protocol: TCP
-      targetPort: 30000
+      targetPort: 8000 # Cổng mà ứng dụng FastAPI chạy bên trong container
     - port: 8099
       name: metricsport
       protocol: TCP
