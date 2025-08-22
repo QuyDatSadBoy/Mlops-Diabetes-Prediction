@@ -5,36 +5,30 @@ metadata:
   namespace: model-serving
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    # Dòng này hướng dẫn Nginx Ingress Controller loại bỏ tiền tố đường dẫn /diabetes
-    # trước khi gửi yêu cầu đến service.
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
   - host: tiennkapp.org.m1
     http:
       paths:
-      # Sửa đường dẫn để khớp với URL đầy đủ
-      - path: /diabetes/docs
+      - path: /diabetes/(.*)  # Sửa lại thành regex để rewrite
         pathType: Prefix
         backend:
           service:
             name: {{ .Release.Name }}
-            # Sửa port thành 8000 để khớp với ứng dụng FastAPI
             port:
-              number: 8000
+              number: 30000 # Sửa port thành 30000 để khớp với Service
       - path: /diabetes/openapi.json
         pathType: ImplementationSpecific
         backend:
           service:
             name: {{ .Release.Name }}
-            # Sửa port thành 8000
             port:
-              number: 8000
+              number: 30000 # Sửa port thành 30000
       - path: /diabetes/preloaded_xgb
         pathType: Prefix
         backend:
           service:
             name: {{ .Release.Name }}
-            # Sửa port thành 8000
             port:
-              number: 8000
+              number: 30000 # Sửa port thành 30000
