@@ -11,21 +11,21 @@ spec:
   - host: tiennkapp.org.m1
     http:
       paths:
-      - path: /docs
+      - path: /diabetes/docs
         pathType: Prefix
         backend:
           service:
             name: {{ .Release.Name }}
             port:
               number: 30000
-      - path: /openapi.json
+      - path: /diabetes/openapi.json
         pathType: ImplementationSpecific
         backend:
           service:
             name: {{ .Release.Name }}
             port:
               number: 30000
-      - path: /preloaded_xgb
+      - path: /diabetes/preloaded_xgb
         pathType: Prefix
         backend:
           service:

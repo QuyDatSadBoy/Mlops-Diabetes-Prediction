@@ -53,7 +53,7 @@ histogram = meter.create_histogram(
 # app = FastAPI(
 #     root_path='/diabetes'
 # )
-app = FastAPI()
+app = FastAPI('/diabetes')
 
 
 class request_body(BaseModel):
