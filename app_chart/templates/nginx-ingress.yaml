@@ -5,33 +5,20 @@ metadata:
   namespace: model-serving
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    # Dòng này chỉ thị cho Nginx Ingress Controller loại bỏ tiền tố đường dẫn
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    # Dòng này chỉ thị cho Nginx Ingress Controller loại bỏ tiền tố /diabetes
+    # và chỉ chuyển tiếp phần còn lại của đường dẫn.
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   rules:
   - host: tiennkapp.org.m1
     http:
       paths:
-      # Sử dụng đường dẫn /diabetes với pathType ImplementationSpecific
+      # Sửa lại path để khớp với tất cả các đường dẫn con dưới /diabetes
       - path: /diabetes(/|$)(.*)
         pathType: ImplementationSpecific
         backend:
           service:
             name: {{ .Release.Name }}
-            # Sửa port thành 30000 để khớp với Service
-            port:
-              number: 30000
-      - path: /diabetes/openapi.json
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: {{ .Release.Name }}
-            port:
-              number: 30000
-      - path: /diabetes/preloaded_xgb
-        pathType: Prefix
-        backend:
-          service:
-            name: {{ .Release.Name }}
+            # Cổng 30000 khớp với service và ứng dụng trong container
             port:
               number: 30000
