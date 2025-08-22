@@ -1,4 +1,4 @@
 image:
-  repository: tiennguyenkha/diabetes_predicton
+  repository: b21dccn222/diabetes_predicton
   tag: "latest"
   pullPolicy: Always
