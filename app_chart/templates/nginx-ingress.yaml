@@ -12,9 +12,9 @@ spec:
   - host: tiennkapp.org.m1
     http:
       paths:
-      # Sử dụng đường dẫn /diabetes với pathType Prefix
-      - path: /diabetes
-        pathType: Prefix
+      # Sử dụng đường dẫn /diabetes với pathType ImplementationSpecific
+      - path: /diabetes(/|$)(.*)
+        pathType: ImplementationSpecific
         backend:
           service:
             name: {{ .Release.Name }}
